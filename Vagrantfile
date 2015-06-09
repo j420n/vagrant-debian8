@@ -8,6 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
+  #Set VM hostname
+  config.vm.hostname = "vps.radnetwork.co.uk"
   # Use a shell provisioner to Vagrant here which will use
   # rake inside the VM to run vagrant:provision
   # Put a custom vagrant.pp in this directory if you want to run your own manifest.
@@ -20,13 +22,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 9898
+  # config.vm.network "forwarded_port", guest: 80, host: 9898
 
   # Create a public network, which generally matched to bridged network.
   config.vm.network "public_network"
 
   # Share an additional folder to the guest VM.
-  config.vm.synced_folder "./vagrant_synced", "/vagrant"
+  config.vm.synced_folder "vagrant_synced", "/vagrant"
 
 
 end
