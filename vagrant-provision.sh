@@ -1,0 +1,41 @@
+#!/bin/bash
+set -e
+
+#Install Puppet Labs repositories. DEBIAN
+#SET hostname as vagrant will only set it to debian -> https://github.com/mitchellh/vagrant/issues/3271
+hostname vps.radnetwork.co.uk
+wget "https://apt.puppetlabs.com/puppetlabs-release-pc1-wheezy.deb"
+sudo dpkg -i puppetlabs-release-pc1-wheezy.deb
+sudo apt-get update
+
+#Install R10K if you dont need to use the module.
+gem install r10k
+
+#Test for Puppet Master
+command -v puppet master >/dev/null 2>&1 || {
+                                      echo >&2 "Puppetmaster is required, but it is not installed.  Installing...";
+                                      sudo apt-get -y -f install puppetmaster puppetmaster-common puppet-common;
+                                     }
+
+#Test for PuppetDB
+if [ ! -d /etc/puppetdb ];
+then
+    echo >&2 "PuppetDB is required, but it is not installed.  Installing...";
+    sudo apt-get -y install puppetdb;
+    sudo apt-get -y install puppetdb-terminus;
+    echo >&2 "PuppetDB is Installed.";
+fi
+
+if [ -d /etc/puppet ];
+then
+    echo >&2 "The local Puppet Master has been found. Welcome to the Puppet show.";
+    sudo /etc/init.d/puppetdb restart;
+    sudo /etc/init.d/puppetmaster restart;
+    sudo /etc/init.d/puppetqd restart;
+    puppet agent --enable
+fi
+
+#Clone our control repo
+cd /vagrant_synced
+git clone https://github.com/j420n/silex-puppet-control.git
+
