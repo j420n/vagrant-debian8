@@ -8,9 +8,6 @@ wget "https://apt.puppetlabs.com/puppetlabs-release-pc1-wheezy.deb"
 sudo dpkg -i puppetlabs-release-pc1-wheezy.deb
 sudo apt-get update
 
-#Install R10K if you dont need to use the module.
-gem install r10k
-
 #Test for Puppet Master
 command -v puppet master >/dev/null 2>&1 || {
                                       echo >&2 "Puppetmaster is required, but it is not installed.  Installing...";
@@ -36,6 +33,7 @@ then
 fi
 
 #Clone our control repo
-cd /vagrant_synced
+cd /vagrant
+apt-get install git-core -y
 git clone https://github.com/j420n/silex-puppet-control.git
 
