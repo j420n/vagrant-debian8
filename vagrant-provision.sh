@@ -37,3 +37,9 @@ cd /vagrant
 apt-get install git-core -y
 git clone https://github.com/j420n/silex-puppet-control.git
 
+#Install r10k from Debian repo.
+apt-get install r10k -y
+
+#Symlink hiera configuration to /etc/hiera.yaml
+ln -sf /vagrant/silex-puppet-control/hiera.yaml /etc/hiera.yaml
+
