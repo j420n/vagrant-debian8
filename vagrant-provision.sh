@@ -35,6 +35,7 @@ fi
 #Clone our control repo
 cd /vagrant
 apt-get install git-core -y
+rm -rf silex-puppet-control
 git clone https://github.com/j420n/silex-puppet-control.git
 
 #Install r10k from Debian repo.
