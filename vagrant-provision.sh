@@ -44,4 +44,6 @@ apt-get install r10k -y
 #Symlink hiera configuration to /etc/hiera.yaml
 ln -sf /vagrant/silex-puppet-control/hiera.yaml /etc/hiera.yaml
 ln -sf /vagrant/silex-puppet-control/r10k.yaml /etc/puppet/
+ln -sf /vagrant/silex-puppet-control/puppet.conf /etc/puppet/
+ln -sf /vagrant/silex-puppet-control/environment.conf /etc/puppet/
 
