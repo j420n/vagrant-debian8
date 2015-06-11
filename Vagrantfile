@@ -15,6 +15,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Put a custom vagrant.pp in this directory if you want to run your own manifest.
   config.vm.provision :shell, :path => "vagrant-provision.sh"
 
+ # Use VBoxManage to customize the VM. For example to change memory:
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "debian-8"
   config.vm.box_url = "https://github.com/holms/vagrant-jessie-box/releases/download/Jessie-v0.1/Debian-jessie-amd64-netboot.box"
