@@ -23,15 +23,6 @@ then
     echo >&2 "PuppetDB is Installed.";
 fi
 
-if [ -d /etc/puppet ];
-then
-    echo >&2 "The local Puppet Master has been found. Welcome to the Puppet show.";
-    sudo /etc/init.d/puppetdb restart;
-    sudo /etc/init.d/puppetmaster restart;
-    sudo /etc/init.d/puppetqd restart;
-    puppet agent --enable
-fi
-
 #Clone our control repo
 cd /vagrant
 apt-get install git-core -y
@@ -45,5 +36,15 @@ apt-get install r10k -y
 ln -sf /vagrant/silex-puppet-control/hiera.yaml /etc/hiera.yaml
 ln -sf /vagrant/silex-puppet-control/r10k.yaml /etc/puppet/
 ln -sf /vagrant/silex-puppet-control/puppet.conf /etc/puppet/
+ln -sf /vagrant/silex-puppet-control/puppetdb.conf /etc/puppet/
 ln -sf /vagrant/silex-puppet-control/environment.conf /etc/puppet/
+
+if [ -d /etc/puppet ];
+then
+    echo >&2 "The local Puppet Master has been found. Welcome to the Puppet show.";
+    sudo /etc/init.d/puppetdb restart;
+    sudo /etc/init.d/puppetmaster restart;
+    sudo /etc/init.d/puppetqd restart;
+    puppet agent --enable
+fi
 
