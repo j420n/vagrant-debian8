@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   #Set VM hostname
-  config.vm.hostname = "vps.radnetwork.co.uk"
+  config.vm.hostname = "debian8-xen.radnetwork.co.uk"
   # Use a shell provisioner to Vagrant here which will use
   # rake inside the VM to run vagrant:provision
   # Put a custom vagrant.pp in this directory if you want to run your own manifest.
