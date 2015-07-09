@@ -13,7 +13,7 @@ if [ -d /etc/puppet/silex-puppet-control ];
 then
     echo >&2 "Updating Silex Puppet control.";
     cd /etc/puppet/silex-puppet-control
-    git pull origin xen
+    git pull origin master
 fi
 if [ ! -d /etc/puppet/silex-puppet-control ];
 then
@@ -21,9 +21,9 @@ then
     mkdir /etc/puppet
     cd /etc/puppet
     git clone https://github.com/j420n/silex-puppet-control.git
-    echo >&2 "Checking out 'PRODUCTION' environment branch.";
+    echo >&2 "Checking out 'MASTER' environment branch.";
     cd /etc/puppet/silex-puppet-control
-    git checkout production
+    git checkout master
 fi
 
 echo >&2 "Provisioning the base system.";
