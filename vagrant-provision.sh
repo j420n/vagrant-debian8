@@ -18,7 +18,10 @@ fi
 if [ ! -d /etc/puppet/silex-puppet-control ];
 then
     echo >&2 "Cloning the 'Control Repo'";
-    mkdir /etc/puppet
+    if [ ! -d /etc/puppet ];
+      then
+        mkdir /etc/puppet
+    fi
     cd /etc/puppet
     git clone https://github.com/j420n/silex-puppet-control.git
     echo >&2 "Checking out 'MASTER' environment branch.";
