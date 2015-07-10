@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-#Set Hostname
-hostname debian8-xen.local.ghost
-
 #Install some dependencies
 echo >&2 "Installing git-core.";
 apt-get install git-core -y
