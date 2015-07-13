@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+#Add /etc/hosts entry for domain and host name.
+sed -i '/127.0.1.1 debian8-xen*/d' /etc/hosts
+echo '127.0.1.1 debian8-xen.local.ghost debian8-xen' >> /etc/hosts
+
 #Install some dependencies
 echo >&2 "Installing git-core.";
 apt-get install git-core -y
