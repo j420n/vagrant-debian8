@@ -14,7 +14,7 @@ if [ -d /etc/puppet/silex-puppet-control ];
 then
     echo >&2 "Updating Silex Puppet control.";
     cd /etc/puppet/silex-puppet-control
-    git pull origin master
+    git pull origin vagrant
 fi
 if [ ! -d /etc/puppet/silex-puppet-control ];
 then
@@ -25,9 +25,9 @@ then
     fi
     cd /etc/puppet
     git clone https://github.com/j420n/silex-puppet-control.git
-    echo >&2 "Checking out 'MASTER' environment branch.";
+    echo >&2 "Checking out 'VAGRANT' environment branch.";
     cd /etc/puppet/silex-puppet-control
-    git checkout master
+    git checkout vagrant
 fi
 
 echo >&2 "Provisioning the base system.";
