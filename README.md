@@ -6,7 +6,7 @@
 To test:
 
     git clone https://github.com/j420n/vagrant-debian8-xen.git
-    cd vagrant-debian8
+    cd vagrant-debian8-xen
     vagrant up
     vagrant ssh
 

@@ -9,6 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   #Set VM hostname
+  #You will need to create hieradata in Silex Puppet Control repo,
+  #when you change the hostname to anything other than debian8-xen, dev or vps.
   config.vm.hostname = "debian8-xen"
   # Use a shell provisioner to Vagrant here which will use
   # rake inside the VM to run vagrant:provision
