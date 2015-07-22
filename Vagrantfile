@@ -35,7 +35,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "public_network"
 
   # Share an additional folder to the guest VM.
-  config.vm.synced_folder "vagrant_synced", "/vagrant"
+  # Do you need a synced folder?
+  # config.vm.synced_folder "vagrant_synced", "/vagrant"
 
 
 end
